@@ -1,0 +1,71 @@
+---
+// src/components/Hero.astro
+
+// We load the images up here now so we can stack them in the HTML
+const heroImages = [
+  'https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&q=80', // Removals
+  'https://images.unsplash.com/photo-1558618666-fcd25c85cd64?auto=format&fit=crop&q=80', // Scrap Metal
+  'https://images.unsplash.com/photo-1601584115197-04ecc0da31d7?auto=format&fit=crop&q=80', // Transport
+  'https://images.unsplash.com/photo-1581578731548-c64695cc6952?auto=format&fit=crop&q=80'  // Cleaning
+];
+---
+
+<section class="relative w-full h-[85vh] min-h-[600px] overflow-hidden bg-brand-black flex items-center justify-center">
+  
+  <div id="hero-slider" class="absolute inset-0 w-full h-full">
+    {heroImages.map((img, index) => (
+      <div 
+        class={`hero-slide absolute inset-0 w-full h-full bg-cover bg-center transition-all duration-1000 ease-in-out transform ${index === 0 ? 'opacity-100 scale-100' : 'opacity-0 scale-105'}`} 
+        style={`background-image: url('${img}');`}
+      ></div>
+    ))}
+  </div>
+  
+  <div class="absolute inset-0 bg-black/65 z-10"></div>
+
+  <div class="relative z-20 text-center px-4 max-w-5xl mx-auto flex flex-col items-center mt-[-5vh]">
+    <h1 class="text-5xl md:text-7xl font-extrabold text-white mb-6 tracking-tight drop-shadow-lg">
+      Let us do the <span class="text-brand-gold">hard work</span> for you.
+    </h1>
+    <p class="text-xl md:text-2xl text-gray-200 mb-10 max-w-3xl font-light drop-shadow-md">
+      Honest, reliable, and family-run. Professional removals, clearances, scrap metal collection, and cleaning across the UK.
+    </p>
+    
+    <button class="quote-trigger cursor-pointer bg-brand-gold hover:bg-white text-brand-black font-bold py-4 px-10 rounded shadow-[0_0_20px_rgba(255,193,7,0.4)] transition-all duration-300 transform hover:-translate-y-1 text-lg">
+      Request Your Custom Quote
+    </button>
+
+    <div class="mt-12 inline-flex items-center gap-3 bg-white/10 backdrop-blur-md border border-white/20 px-6 py-3 rounded text-white text-sm font-semibold shadow-xl">
+      <svg class="w-6 h-6 text-green-400" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path></svg>
+      Environment Agency Registered Refuse Carrier
+    </div>
+  </div>
+
+  <div class="absolute bottom-0 left-0 w-[102%] -ml-[1%] overflow-hidden leading-none z-20">
+    <svg class="relative block w-full h-[60px] md:h-[120px]" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none">
+        <path d="M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V120H0V95.8C59.71,118.08,130.83,119.3,192.39,101.51,235.34,89.06,278.36,73.1,321.39,56.44Z" class="fill-[#fdfdfd]"></path>
+    </svg>
+  </div>
+
+</section>
+
+<script>
+  // Advanced Smooth Crossfade Logic
+  const slides = document.querySelectorAll('.hero-slide');
+  let currentSlide = 0;
+
+  if (slides.length > 0) {
+    setInterval(() => {
+      // Fade out the current slide
+      slides[currentSlide].classList.remove('opacity-100', 'scale-100');
+      slides[currentSlide].classList.add('opacity-0', 'scale-105');
+      
+      // Calculate the next slide
+      currentSlide = (currentSlide + 1) % slides.length;
+      
+      // Fade in the new slide
+      slides[currentSlide].classList.remove('opacity-0', 'scale-105');
+      slides[currentSlide].classList.add('opacity-100', 'scale-100');
+    }, 5000); // Swaps every 5 seconds
+  }
+</script>

@@ -1,0 +1,13 @@
+@import "tailwindcss";
+
+@theme {
+  /* Extracting the colors from your logo */
+  --color-brand-black: #000000;
+  --color-brand-dark: #0f0f0f;
+  --color-brand-gold: #FFC107;
+  --color-brand-gold-light: #FFE082;
+  --color-brand-gold-dark: #FF8F00;
+  
+  /* Clean corporate font */
+  --font-sans: 'Inter', sans-serif;
+}
