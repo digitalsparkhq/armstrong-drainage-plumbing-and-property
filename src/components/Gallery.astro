@@ -1,37 +1,41 @@
 ---
 // src/components/Gallery.astro
 
+// Updated to match Armstrong Drainage's Facebook posts and your new image naming convention
 const projects = [
   {
-    title: "End of Tenancy Clearance",
-    beforeImg: "/images/clearance-before.jpg",
-    afterImg: "/images/clearance-after.jpg",
+    title: "100m Water Main Installation",
+    beforeImg: "/images/before1.jpg",
+    afterImg: "/images/after1.jpg",
   },
   {
-    title: "Commercial Scrap Yard",
-    beforeImg: "/images/scrap-before.jpg",
-    afterImg: "/images/scrap-after.jpg",
+    title: "Structural Drain Lining",
+    beforeImg: "/images/before2.jpg",
+    afterImg: "/images/after2.jpg",
   },
   {
-    title: "Deep Property Clean",
-    beforeImg: "/images/cleaning-before.jpg",
-    afterImg: "/images/cleaning-after.jpg",
+    title: "Interceptor Replacement & Repair",
+    beforeImg: "/images/before3.jpg",
+    afterImg: "/images/after3.jpg",
   },
   {
-    title: "Garden Rubbish Removal",
-    beforeImg: "/images/rubbish-before.jpg",
-    afterImg: "/images/rubbish-after.jpg",
+    title: "Blockage Clearance",
+    beforeImg: "/images/before4.jpg",
+    afterImg: "/images/after4.jpg",
   }
 ];
 ---
 
-<section class="py-24 relative overflow-hidden bg-gradient-to-br from-[#ffffff] via-[#fffbf0] to-[#fff6d6]">
+<section id="gallery" class="py-24 relative overflow-hidden bg-gradient-to-br from-[#ffffff] via-[#fffbf0] to-[#fff6d6]">
   
   <div class="max-w-6xl mx-auto px-6 relative z-10">
     
     <div class="text-center mb-16">
       <h2 class="text-4xl font-extrabold text-brand-black tracking-tight mb-4">Our Work Speaks for Itself</h2>
       <div class="w-24 h-1 bg-brand-gold mx-auto rounded shadow-sm"></div>
+      <p class="mt-6 text-lg text-gray-600 max-w-2xl mx-auto">
+        Real results from recent emergency callouts, excavations, and repairs. Slide through to see the Armstrong difference.
+      </p>
     </div>
 
     <div class="grid grid-cols-1 md:grid-cols-2 gap-10">
@@ -71,7 +75,7 @@ const projects = [
 
   <div id="lightbox" class="fixed inset-0 z-[100] hidden bg-black/95 flex-col items-center justify-center p-4 sm:p-8 opacity-0 transition-opacity duration-300">
     
-    <button id="lightbox-close" class="absolute top-6 right-6 md:top-10 md:right-10 text-white hover:text-brand-gold transition-colors z-50 p-2">
+    <button id="lightbox-close" class="absolute top-6 right-6 md:top-10 md:right-10 text-white hover:text-brand-gold transition-colors z-50 p-2 cursor-pointer">
       <svg class="w-10 h-10" fill="none" viewBox="0 0 24 24" stroke="currentColor">
         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
       </svg>
@@ -109,14 +113,12 @@ const projects = [
   // Open Lightbox
   triggers.forEach(trigger => {
     trigger.addEventListener('click', () => {
-      // Pass data to lightbox elements
       if(lbTitle && lbBefore && lbAfter && lightbox) {
           lbTitle.textContent = trigger.getAttribute('data-title');
           lbBefore.setAttribute('src', trigger.getAttribute('data-before') || '');
           lbAfter.setAttribute('src', trigger.getAttribute('data-after') || '');
           
           lightbox.classList.remove('hidden');
-          // Slight delay to allow display to toggle before changing opacity for smooth fade
           setTimeout(() => {
             lightbox.classList.remove('opacity-0');
           }, 10);
@@ -130,14 +132,12 @@ const projects = [
         lightbox.classList.add('opacity-0');
         setTimeout(() => {
           lightbox.classList.add('hidden');
-        }, 300); // Matches the duration-300 in Tailwind
+        }, 300); 
     }
   };
 
-  // Close on Cross click
   if(closeBtn) closeBtn.addEventListener('click', closeLightbox);
   
-  // Close on clicking outside the image (on the dark background overlay)
   if(lightbox) {
       lightbox.addEventListener('click', (e) => {
         if (e.target === lightbox) {

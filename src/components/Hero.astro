@@ -1,12 +1,12 @@
 ---
 // src/components/Hero.astro
 
-// We load the images up here now so we can stack them in the HTML
+// Updated with highly reliable Unsplash images tailored to plumbing and drainage
 const heroImages = [
-  'https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&q=80', // Removals
-  'https://images.unsplash.com/photo-1558618666-fcd25c85cd64?auto=format&fit=crop&q=80', // Scrap Metal
-  'https://images.unsplash.com/photo-1601584115197-04ecc0da31d7?auto=format&fit=crop&q=80', // Transport
-  'https://images.unsplash.com/photo-1581578731548-c64695cc6952?auto=format&fit=crop&q=80'  // Cleaning
+  'https://images.unsplash.com/photo-1504328345606-18bbc8c9d7d1?auto=format&fit=crop&q=80', // Plumber working on pipes
+  'https://images.unsplash.com/photo-1585704032915-c3400ca199e7?auto=format&fit=crop&q=80', // Wrench/Repairs
+  'https://images.unsplash.com/photo-1581094288338-2314dddb7ece?auto=format&fit=crop&q=80', // Industrial drainage
+  'https://images.unsplash.com/photo-1584622650111-993a426fbf0a?auto=format&fit=crop&q=80'  // Bathroom Refurbishment
 ];
 ---
 
@@ -23,12 +23,14 @@ const heroImages = [
   
   <div class="absolute inset-0 bg-black/65 z-10"></div>
 
-  <div class="relative z-20 text-center px-4 max-w-5xl mx-auto flex flex-col items-center mt-[-5vh]">
+  <div class="relative z-20 text-center px-4 max-w-5xl mx-auto flex flex-col items-center pb-24 md:pb-32">
     <h1 class="text-5xl md:text-7xl font-extrabold text-white mb-6 tracking-tight drop-shadow-lg">
-      Let us do the <span class="text-brand-gold">hard work</span> for you.
+      Local drainage experts at your call <span class="text-brand-gold">24/7.</span>
     </h1>
+    
     <p class="text-xl md:text-2xl text-gray-200 mb-10 max-w-3xl font-light drop-shadow-md">
-      Honest, reliable, and family-run. Professional removals, clearances, scrap metal collection, and cleaning across the UK.
+      From blocked drains and CCTV surveys to full bathroom refurbishments. <br class="hidden md:block" />
+      <span class="font-medium text-white italic">"Armstrong's the name, drainage is the game."</span>
     </p>
     
     <button class="quote-trigger cursor-pointer bg-brand-gold hover:bg-white text-brand-black font-bold py-4 px-10 rounded shadow-[0_0_20px_rgba(255,193,7,0.4)] transition-all duration-300 transform hover:-translate-y-1 text-lg">
@@ -36,8 +38,8 @@ const heroImages = [
     </button>
 
     <div class="mt-12 inline-flex items-center gap-3 bg-white/10 backdrop-blur-md border border-white/20 px-6 py-3 rounded text-white text-sm font-semibold shadow-xl">
-      <svg class="w-6 h-6 text-green-400" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path></svg>
-      Environment Agency Registered Refuse Carrier
+      <svg class="w-6 h-6 text-green-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+      24/7 Emergency Response Available
     </div>
   </div>
 
@@ -56,16 +58,13 @@ const heroImages = [
 
   if (slides.length > 0) {
     setInterval(() => {
-      // Fade out the current slide
       slides[currentSlide].classList.remove('opacity-100', 'scale-100');
       slides[currentSlide].classList.add('opacity-0', 'scale-105');
       
-      // Calculate the next slide
       currentSlide = (currentSlide + 1) % slides.length;
       
-      // Fade in the new slide
       slides[currentSlide].classList.remove('opacity-0', 'scale-105');
       slides[currentSlide].classList.add('opacity-100', 'scale-100');
-    }, 5000); // Swaps every 5 seconds
+    }, 5000); 
   }
 </script>

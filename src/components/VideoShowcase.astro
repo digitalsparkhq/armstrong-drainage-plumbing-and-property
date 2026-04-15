@@ -1,0 +1,69 @@
+---
+// src/components/VideoShowcase.astro
+---
+
+<section class="py-24 bg-gray-50 relative overflow-hidden border-y border-gray-200">
+  
+  <div class="max-w-7xl mx-auto px-6 relative z-10">
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+      
+      <div>
+        <div class="inline-block px-4 py-1.5 rounded-full bg-brand-gold/10 border border-brand-gold/20 text-brand-black font-bold text-sm tracking-wider mb-6">
+          SEE US IN ACTION
+        </div>
+        
+        <h2 class="text-4xl md:text-5xl font-extrabold mb-6 leading-tight text-gray-900">
+          Equipped to handle <span class="text-brand-gold">any scale of emergency.</span>
+        </h2>
+        
+        <p class="text-gray-600 text-lg mb-8 leading-relaxed">
+          We don't just talk about rapid response—we deliver. When severe flooding threatens property or critical infrastructure, our specialized tanker units are deployed to drain thousands of gallons of water fast.
+        </p>
+
+        <div class="bg-white p-6 rounded-xl border border-gray-100 shadow-sm mb-8">
+          <div class="flex items-start gap-4">
+            <svg class="w-8 h-8 text-brand-gold flex-shrink-0 mt-1" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z" clip-rule="evenodd"></path></svg>
+            <div>
+              <h4 class="font-bold text-gray-900">Recent Callout</h4>
+              <p class="text-sm text-gray-600 mt-1">
+                "Attended with our tanker to drain flood water so it doesn't cause damage to the pump house. Job sorted, infrastructure secured."
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <button class="quote-trigger cursor-pointer bg-brand-black hover:bg-brand-gold text-white hover:text-brand-black font-bold py-4 px-8 rounded shadow-lg transition-all duration-300 transform hover:-translate-y-1 text-lg flex items-center gap-2 group">
+          Require Emergency Pumping?
+          <svg class="w-5 h-5 transform group-hover:translate-x-1 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3" />
+          </svg>
+        </button>
+      </div>
+
+      <div class="flex justify-center lg:justify-end">
+        <div class="relative bg-white p-3 rounded-[2.5rem] shadow-[0_20px_50px_rgba(0,0,0,0.15)] border border-gray-200 transform rotate-2 hover:rotate-0 transition-transform duration-500">
+          
+          <div class="absolute top-0 left-1/2 transform -translate-x-1/2 w-32 h-6 bg-white rounded-b-xl z-20 border-b border-x border-gray-100 flex items-center justify-center gap-2">
+             <div class="w-12 h-1.5 bg-gray-200 rounded-full"></div>
+             <div class="w-2 h-2 bg-gray-200 rounded-full"></div>
+          </div>
+
+          <div class="rounded-[1.75rem] overflow-hidden bg-black relative flex items-center justify-center" style="width: 267px; height: 476px;">
+            <iframe 
+              src="https://www.facebook.com/plugins/video.php?height=476&href=https%3A%2F%2Fwww.facebook.com%2Freel%2F1232286531910708%2F&show_text=false&width=267&t=0" 
+              width="267" 
+              height="476" 
+              style="border:none;overflow:hidden" 
+              scrolling="no" 
+              frameborder="0" 
+              allowfullscreen="true" 
+              allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share">
+            </iframe>
+          </div>
+          
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
