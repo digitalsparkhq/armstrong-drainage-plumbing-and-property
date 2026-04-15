@@ -1,7 +1,7 @@
 ---
 // src/components/Gallery.astro
 
-// Updated to match Armstrong Drainage's Facebook posts and your new image naming convention
+// Before & After Projects
 const projects = [
   {
     title: "New Drain Line Added At Local School",
@@ -24,6 +24,17 @@ const projects = [
     afterImg: "/images/after4.jpg",
   }
 ];
+
+// Single Images Array
+const singleImages = [
+  "/images/work1.jpeg",
+  "/images/work2.jpeg",
+  "/images/work3.jpeg",
+  "/images/work4.jpeg",
+  "/images/work5.jpeg",
+  "/images/work6.jpeg",
+  "/images/work7.jpeg",
+];
 ---
 
 <section id="gallery" class="py-24 relative overflow-hidden bg-gradient-to-br from-[#ffffff] via-[#fffbf0] to-[#fff6d6]">
@@ -39,11 +50,11 @@ const projects = [
     </div>
 
     <div class="grid grid-cols-1 md:grid-cols-2 gap-10">
-      
       {projects.map((project) => (
         <div class="group flex flex-col items-center">
           
           <div class="gallery-trigger relative w-full aspect-[4/3] flex rounded-2xl overflow-hidden shadow-md border border-white hover:shadow-2xl hover:-translate-y-1 transition-all duration-300 cursor-pointer"
+               data-type="compare"
                data-title={project.title}
                data-before={project.beforeImg}
                data-after={project.afterImg}>
@@ -69,33 +80,59 @@ const projects = [
           <h3 class="text-xl font-bold text-gray-900 mt-6 text-center">{project.title}</h3>
         </div>
       ))}
-      
     </div>
+
+    <div class="mt-24">
+      <div class="text-center mb-10">
+        <h3 class="text-2xl font-bold text-brand-black mb-4">Recent On-Site Operations</h3>
+        <div class="w-16 h-1 bg-brand-gold mx-auto rounded shadow-sm"></div>
+      </div>
+      
+      <div class="flex flex-wrap justify-center gap-4 md:gap-6">
+        {singleImages.map((img, index) => (
+          <div class="gallery-trigger w-[calc(50%-0.5rem)] md:w-[calc(25%-1.125rem)] relative aspect-square rounded-xl overflow-hidden shadow-sm hover:shadow-xl group border border-gray-100 bg-white cursor-pointer"
+               data-type="single"
+               data-single={img}>
+             <img 
+                src={img} 
+                alt={`Armstrong Drainage Work ${index + 1}`} 
+                class="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-700" 
+             />
+             <div class="absolute inset-0 bg-brand-gold/0 group-hover:bg-brand-gold/20 transition-colors duration-300 pointer-events-none mix-blend-multiply flex items-center justify-center">
+                <svg class="w-8 h-8 md:w-12 md:h-12 text-white opacity-0 group-hover:opacity-100 transition-opacity duration-300 drop-shadow-lg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0zM10 7v3m0 0v3m0-3h3m-3 0H7" /></svg>
+             </div>
+          </div>
+        ))}
+      </div>
+    </div>
+
   </div>
 
   <div id="lightbox" class="fixed inset-0 z-[100] hidden bg-black/95 flex-col items-center justify-center p-4 sm:p-8 opacity-0 transition-opacity duration-300">
     
-    <button id="lightbox-close" class="absolute top-6 right-6 md:top-10 md:right-10 text-white hover:text-brand-gold transition-colors z-50 p-2 cursor-pointer">
-      <svg class="w-10 h-10" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+    <button id="lightbox-close" class="absolute top-4 right-4 md:top-8 md:right-8 text-white hover:text-brand-gold bg-black/40 hover:bg-black/80 rounded-full transition-all z-[110] p-2 cursor-pointer">
+      <svg class="w-8 h-8 md:w-10 md:h-10" fill="none" viewBox="0 0 24 24" stroke="currentColor">
         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
       </svg>
     </button>
 
-    <div class="w-full max-w-5xl flex flex-col items-center">
-      <h3 id="lightbox-title" class="text-3xl md:text-4xl font-extrabold text-white mb-8 text-center drop-shadow-md"></h3>
+    <div class="w-full h-full max-h-[85vh] flex flex-col items-center justify-center relative">
+      <h3 id="lightbox-title" class="text-2xl md:text-4xl font-extrabold text-white mb-6 text-center drop-shadow-md hidden"></h3>
       
-      <div class="relative w-full aspect-[4/3] md:aspect-[16/9] flex rounded-xl overflow-hidden shadow-[0_0_40px_rgba(0,0,0,0.8)] border border-white/10">
-        <div class="w-1/2 relative h-full">
-          <img id="lightbox-before" src="" alt="Full Before View" class="w-full h-full object-cover grayscale-[15%] brightness-[0.85]" />
-          <div class="absolute top-4 left-4 md:top-6 md:left-6 bg-brand-black/90 text-white text-sm md:text-lg font-bold px-4 py-2 rounded uppercase tracking-wider">Before</div>
+      <div id="lb-media-container" class="relative w-full max-w-4xl flex rounded-xl overflow-hidden shadow-[0_0_40px_rgba(0,0,0,0.8)] border border-white/10">
+        
+        <div id="lb-before-container" class="w-1/2 relative h-full">
+          <img id="lightbox-before" src="" alt="Full View" class="w-full h-full object-cover grayscale-[15%] brightness-[0.85]" />
+          <div id="lb-before-badge" class="absolute top-4 left-4 md:top-6 md:left-6 bg-brand-black/90 text-white text-xs md:text-sm font-bold px-3 py-1.5 md:px-4 md:py-2 rounded uppercase tracking-wider">Before</div>
         </div>
         
-        <div class="absolute inset-y-0 left-1/2 w-1.5 md:w-2 bg-brand-gold z-10 transform -translate-x-1/2 shadow-[0_0_20px_rgba(255,193,7,0.8)]"></div>
+        <div id="lb-divider" class="absolute inset-y-0 left-1/2 w-1 md:w-1.5 bg-brand-gold z-10 transform -translate-x-1/2 shadow-[0_0_20px_rgba(255,193,7,0.8)]"></div>
         
-        <div class="w-1/2 relative h-full">
+        <div id="lb-after-container" class="w-1/2 relative h-full">
           <img id="lightbox-after" src="" alt="Full After View" class="w-full h-full object-cover" />
-          <div class="absolute top-4 right-4 md:top-6 md:right-6 bg-brand-gold text-brand-black text-sm md:text-lg font-bold px-4 py-2 rounded uppercase tracking-wider shadow-lg">After</div>
+          <div id="lb-after-badge" class="absolute top-4 right-4 md:top-6 md:right-6 bg-brand-gold text-brand-black text-xs md:text-sm font-bold px-3 py-1.5 md:px-4 md:py-2 rounded uppercase tracking-wider shadow-lg">After</div>
         </div>
+
       </div>
     </div>
   </div>
@@ -107,16 +144,53 @@ const projects = [
   const lightbox = document.getElementById('lightbox');
   const closeBtn = document.getElementById('lightbox-close');
   const lbTitle = document.getElementById('lightbox-title');
+  const lbMediaContainer = document.getElementById('lb-media-container');
   const lbBefore = document.getElementById('lightbox-before');
   const lbAfter = document.getElementById('lightbox-after');
+  
+  const lbBeforeCont = document.getElementById('lb-before-container');
+  const lbAfterCont = document.getElementById('lb-after-container');
+  const lbDivider = document.getElementById('lb-divider');
+  const lbBeforeBadge = document.getElementById('lb-before-badge');
+  const lbAfterBadge = document.getElementById('lb-after-badge');
 
-  // Open Lightbox
+  // Open Lightbox Logic
   triggers.forEach(trigger => {
     trigger.addEventListener('click', () => {
-      if(lbTitle && lbBefore && lbAfter && lightbox) {
-          lbTitle.textContent = trigger.getAttribute('data-title');
-          lbBefore.setAttribute('src', trigger.getAttribute('data-before') || '');
-          lbAfter.setAttribute('src', trigger.getAttribute('data-after') || '');
+      if(lbTitle && lbBefore && lbAfter && lightbox && lbBeforeCont && lbAfterCont && lbDivider && lbMediaContainer) {
+          
+          const type = trigger.getAttribute('data-type');
+          
+          if (type === 'single') {
+            lbTitle.classList.add('hidden');
+            lbMediaContainer.className = 'relative w-full h-full max-h-[80vh] flex justify-center border-none shadow-none'; 
+            
+            lbBefore.setAttribute('src', trigger.getAttribute('data-single') || '');
+            lbBeforeCont.className = 'w-full relative h-full flex items-center justify-center';
+            lbBefore.className = 'max-w-full max-h-full object-contain rounded-xl'; 
+            
+            lbAfterCont.classList.add('hidden');
+            lbDivider.classList.add('hidden');
+            if(lbBeforeBadge) lbBeforeBadge.classList.add('hidden');
+            if(lbAfterBadge) lbAfterBadge.classList.add('hidden');
+
+          } else {
+            lbTitle.classList.remove('hidden');
+            lbTitle.textContent = trigger.getAttribute('data-title');
+            
+            lbMediaContainer.className = 'relative w-full max-w-4xl aspect-[4/3] md:aspect-[16/9] flex rounded-xl overflow-hidden shadow-[0_0_40px_rgba(0,0,0,0.8)] border border-white/10';
+            
+            lbBefore.setAttribute('src', trigger.getAttribute('data-before') || '');
+            lbAfter.setAttribute('src', trigger.getAttribute('data-after') || '');
+            
+            lbBeforeCont.className = 'w-1/2 relative h-full';
+            lbBefore.className = 'w-full h-full object-cover grayscale-[15%] brightness-[0.85]';
+            
+            lbAfterCont.classList.remove('hidden');
+            lbDivider.classList.remove('hidden');
+            if(lbBeforeBadge) lbBeforeBadge.classList.remove('hidden');
+            if(lbAfterBadge) lbAfterBadge.classList.remove('hidden');
+          }
           
           lightbox.classList.remove('hidden');
           setTimeout(() => {
@@ -138,11 +212,28 @@ const projects = [
 
   if(closeBtn) closeBtn.addEventListener('click', closeLightbox);
   
+  // FIXED: Bulletproof click-outside logic with proper TypeScript casting
   if(lightbox) {
       lightbox.addEventListener('click', (e) => {
-        if (e.target === lightbox) {
-          closeLightbox();
+        // Cast the event target to an HTMLElement so TypeScript knows it has an id and tagName
+        const target = e.target as HTMLElement;
+        
+        // Safety check in case target is null
+        if (!target) return;
+        
+        // Check if the user clicked directly on the image, the text, or the divider.
+        if (
+          target.tagName === 'IMG' || 
+          target.id === 'lb-divider' || 
+          target.id === 'lb-before-badge' || 
+          target.id === 'lb-after-badge' ||
+          target.id === 'lightbox-title'
+        ) {
+          return; 
         }
+        
+        // If they clicked anything else (the background, the empty flex space), close it.
+        closeLightbox();
       });
   }
 </script>
