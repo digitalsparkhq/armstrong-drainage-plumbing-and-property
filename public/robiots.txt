@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://armstrongdrainage.co.uk/sitemap-index.xml

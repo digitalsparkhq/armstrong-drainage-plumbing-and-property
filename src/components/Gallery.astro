@@ -6,22 +6,30 @@ const projects = [
   {
     title: "New Drain Line Added At Local School",
     beforeImg: "/images/before1.jpg",
+    beforeAlt: "Blocked and damaged external drain line at a local school in Sevenoaks before excavation",
     afterImg: "/images/after1.jpg",
+    afterAlt: "Newly installed, free-flowing external drain line resolving the blockage in Sevenoaks",
   },
   {
     title: "Collapsed Drain Emergency Excavation & Repair",
     beforeImg: "/images/before2.jpg",
+    beforeAlt: "Emergency excavation of a collapsed and severely blocked drain in Kent",
     afterImg: "/images/after2.jpg",
+    afterAlt: "Fully repaired and functioning drainage pipe after emergency excavation in Kent",
   },
   {
     title: "Gully Replacement",
     beforeImg: "/images/before3.jpg",
+    beforeAlt: "Old, blocked, and overflowing drainage gully needing emergency replacement",
     afterImg: "/images/after3.jpg",
+    afterAlt: "Brand new, clear drainage gully installed to prevent blocked external drains",
   },
   {
     title: "Ground Works & Digger Supply & Driver",
     beforeImg: "/images/before4.jpg",
+    beforeAlt: "Site preparation and groundworks using a digger for severe drainage issues in Sevenoaks",
     afterImg: "/images/after4.jpg",
+    afterAlt: "Completed groundwork and professional trenching for a new drainage system in Sevenoaks",
   }
 ];
 
@@ -64,14 +72,14 @@ const singleImages = [
             </div>
 
             <div class="w-1/2 relative h-full overflow-hidden">
-              <img src={project.beforeImg} alt="Before" class="w-full h-full object-cover grayscale-[20%] brightness-75" />
+              <img src={project.beforeImg} alt={project.beforeAlt} class="w-full h-full object-cover grayscale-[20%] brightness-75" />
               <div class="absolute top-3 left-3 bg-brand-black/80 backdrop-blur text-white text-xs font-bold px-2 py-1 rounded uppercase tracking-wider">Before</div>
             </div>
 
             <div class="absolute inset-y-0 left-1/2 w-1 bg-brand-gold z-10 transform -translate-x-1/2 shadow-[0_0_10px_rgba(255,193,7,0.5)]"></div>
 
             <div class="w-1/2 relative h-full overflow-hidden">
-              <img src={project.afterImg} alt="After" class="w-full h-full object-cover" />
+              <img src={project.afterImg} alt={project.afterAlt} class="w-full h-full object-cover" />
               <div class="absolute top-3 right-3 bg-brand-gold text-brand-black text-xs font-bold px-2 py-1 rounded uppercase tracking-wider shadow-sm">After</div>
             </div>
 

@@ -1,16 +1,16 @@
 ---
 // src/components/Hero.astro
 
-// Updated with highly reliable Unsplash images tailored to plumbing and drainage
+// Updated with your local hero1 and hero3 images
 const heroImages = [
-  '/images/hero1.jpg', // Your new 1st image
-  'https://images.unsplash.com/photo-1585704032915-c3400ca199e7?auto=format&fit=crop&q=80', // Wrench/Repairs
-  '/images/hero3.jpg', // Your new 3rd image
-  'https://images.unsplash.com/photo-1584622650111-993a426fbf0a?auto=format&fit=crop&q=80'  // Bathroom Refurbishment
+  '/images/hero1.jpg', 
+  'https://images.unsplash.com/photo-1585704032915-c3400ca199e7?auto=format&fit=crop&q=80', 
+  '/images/hero3.jpg', 
+  'https://images.unsplash.com/photo-1584622650111-993a426fbf0a?auto=format&fit=crop&q=80'  
 ];
 ---
 
-<section class="relative w-full h-[85vh] min-h-[600px] overflow-hidden bg-brand-black flex items-center justify-center">
+<section class="relative w-full min-h-[80vh] md:min-h-[700px] overflow-hidden bg-brand-black flex items-center justify-center pt-6 md:pt-10 pb-28 md:pb-40">
   
   <div id="hero-slider" class="absolute inset-0 w-full h-full">
     {heroImages.map((img, index) => (
@@ -23,13 +23,14 @@ const heroImages = [
   
   <div class="absolute inset-0 bg-black/65 z-10"></div>
 
-  <div class="relative z-20 text-center px-4 max-w-5xl mx-auto flex flex-col items-center pb-24 md:pb-32">
+  <div class="relative z-20 text-center px-4 max-w-5xl mx-auto flex flex-col items-center">
+    
     <h1 class="text-5xl md:text-7xl font-extrabold text-white mb-6 tracking-tight drop-shadow-lg">
-      Local drainage experts at your call <span class="text-brand-gold">24/7.</span>
+      Expert Blocked Drain Clearing in <span class="text-brand-gold">Sevenoaks & Kent.</span>
     </h1>
     
     <p class="text-xl md:text-2xl text-gray-200 mb-10 max-w-3xl font-light drop-shadow-md">
-      From blocked drains and CCTV surveys to full bathroom refurbishments. <br class="hidden md:block" />
+      Available 24/7 for emergency blocked drains, CCTV surveys, and full plumbing repairs. <br class="hidden md:block" />
       <span class="font-medium text-white italic">"Armstrong's the name, drainage is the game."</span>
     </p>
     
@@ -52,11 +53,11 @@ const heroImages = [
 </section>
 
 <script>
-  // Advanced Smooth Crossfade Logic
+  // Simple Hero Image Slider Logic
   const slides = document.querySelectorAll('.hero-slide');
   let currentSlide = 0;
 
-  if (slides.length > 0) {
+  if (slides.length > 1) {
     setInterval(() => {
       slides[currentSlide].classList.remove('opacity-100', 'scale-100');
       slides[currentSlide].classList.add('opacity-0', 'scale-105');
